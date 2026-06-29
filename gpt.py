@@ -30,6 +30,18 @@ def decode(s):
 
 data = torch.tensor(encode(text), dtype=torch.long)
 
+# Validation
+# Splits data into 9:1 ratio 9 being the data the transformer will train on and 1 being the data it will use to validate its results
+
+n = int(0.9*len(data))
+train_data = data[:n]
+val_data = data[n:]
+
+block_size = 8
+print(train_data[:block_size+1])
+
+x = train_data[:block_size]
+
 
 
 
